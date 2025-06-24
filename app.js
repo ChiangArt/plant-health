@@ -48,7 +48,7 @@ uploadInput.addEventListener('change', async () => {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "Api-Key": "xL9eixRQ4sFKp4bAyslPh3Bmo7qL5xDdjO9hFwpmKabtbt1rYh"
+          "Api-Key": "1ECzzjs0N6d5opwwY469Gitkdu9AdL0Q6MPgX0Eva505sOiwAB"
         },
         body: JSON.stringify({
           images: [base64Image],
@@ -133,7 +133,7 @@ async function checkPlantHealth() {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "Api-Key": "xL9eixRQ4sFKp4bAyslPh3Bmo7qL5xDdjO9hFwpmKabtbt1rYh"
+        "Api-Key": "1ECzzjs0N6d5opwwY469Gitkdu9AdL0Q6MPgX0Eva505sOiwAB"
       },
       body: JSON.stringify({
         images: [currentBase64Image],
