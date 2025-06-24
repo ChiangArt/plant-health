@@ -1,4 +1,7 @@
 const uploadInput = document.getElementById('upload');
+const cameraInput = document.getElementById('cameraInput');
+const uploadGalleryBtn = document.getElementById('uploadGalleryBtn');
+const takePhotoBtn = document.getElementById('takePhotoBtn');
 const plantList = document.getElementById('plant-list');
 const plantModal = document.getElementById('plantModal');
 const plantModalContent = document.getElementById('plantModalContent');
@@ -19,8 +22,17 @@ window.addEventListener('click', (event) => {
   }
 });
 
-uploadInput.addEventListener('change', async () => {
-  const file = uploadInput.files[0];
+// Configurar los botones
+uploadGalleryBtn.addEventListener('click', () => {
+  uploadInput.click();
+});
+
+takePhotoBtn.addEventListener('click', () => {
+  cameraInput.click();
+});
+
+// Función para manejar la imagen (común para ambos casos)
+async function handleImage(file) {
   if (!file) return;
 
   const reader = new FileReader();
@@ -115,6 +127,17 @@ uploadInput.addEventListener('change', async () => {
   };
 
   reader.readAsDataURL(file);
+}
+
+// Event listeners para los inputs
+uploadInput.addEventListener('change', () => {
+  const file = uploadInput.files[0];
+  handleImage(file);
+});
+
+cameraInput.addEventListener('change', () => {
+  const file = cameraInput.files[0];
+  handleImage(file);
 });
 
 // Función para verificar la salud de la planta
@@ -169,23 +192,19 @@ function displayHealthResults(healthData) {
     return;
   }
 
-const healthScore = healthData.result.is_healthy.probability * 100; 
-const healthPercentage = healthScore.toFixed(1);
-// Cambiar esta línea para no usar el threshold y usar un valor fijo en su lugar
-const isHealthy = healthScore > 50; // 50% como punto de corte
+  const healthScore = healthData.result.is_healthy.probability * 100; 
+  const healthPercentage = healthScore.toFixed(1);
+  const isHealthy = healthScore > 50;
+  const healthScoreClass = isHealthy ? 'healthy' : 'unhealthy';
+  const healthIcon = isHealthy ? '✅' : '⚠️';
+  const healthStatus = isHealthy ? 'Saludable' : 'Con problemas';
 
-// El resto del código se mantiene igual
-const healthScoreClass = isHealthy ? 'healthy' : 'unhealthy';
-const healthIcon = isHealthy ? '✅' : '⚠️';
-const healthStatus = isHealthy ? 'Saludable' : 'Con problemas';
-
-// Texto descriptivo ajustado
-function getHealthStatusNote(score) {
-  if (score > 80) return 'Tu planta está en excelente estado de salud.';
-  if (score > 60) return 'Tu planta está saludable con pequeños aspectos a vigilar.';
-  if (score > 40) return 'Tu planta muestra algunos problemas de salud.';
-  return 'Tu planta tiene problemas serios de salud que requieren atención.';
-}
+  function getHealthStatusNote(score) {
+    if (score > 80) return 'Tu planta está en excelente estado de salud.';
+    if (score > 60) return 'Tu planta está saludable con pequeños aspectos a vigilar.';
+    if (score > 40) return 'Tu planta muestra algunos problemas de salud.';
+    return 'Tu planta tiene problemas serios de salud que requieren atención.';
+  }
 
   let healthHTML = `
     <div class="card health-results">
@@ -194,14 +213,14 @@ function getHealthStatusNote(score) {
       </div>
       <div class="card-body">
         <div class="health-probability">
-  <span class="health-score ${healthScoreClass}">
-    ${healthIcon} ${healthStatus}: ${healthPercentage}%
-  </span>
-  <div class="health-meter">
-    <div class="health-meter-fill" style="width: ${healthScore}%"></div>
-  </div>
-  <p class="health-status-note">${getHealthStatusNote(healthScore)}</p>
-</div>
+          <span class="health-score ${healthScoreClass}">
+            ${healthIcon} ${healthStatus}: ${healthPercentage}%
+          </span>
+          <div class="health-meter">
+            <div class="health-meter-fill" style="width: ${healthScore}%"></div>
+          </div>
+          <p class="health-status-note">${getHealthStatusNote(healthScore)}</p>
+        </div>
         <div class="disease-list" id="disease-list"></div>
       </div>
     </div>`;
