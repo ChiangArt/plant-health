@@ -7,7 +7,7 @@ if (!token) {
   const fetchDetails = async () => {
     const response = await fetch(`https://plant.id/api/v3/kb/plants/?details=common_names,url,description,taxonomy,rank,gbif_id,inaturalist_id,image,synonyms,edible_parts,watering,propagation_methods&language=es`, {
       headers: {
-        "Api-Key": "71hZHh7PIpJ52NnNs3ne8hgsdrOcC2KWQPc8dzSBsyUYBE08nw"
+        "Api-Key": "1ECzzjs0N6d5opwwY469Gitkdu9AdL0Q6MPgX0Eva505sOiwAB"
       }
     });
 
