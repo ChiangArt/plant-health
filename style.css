@@ -367,7 +367,7 @@ img {
         .header-area .top-header-area .top-header-content .top-header-meta .language-dropdown .dropdown-menu {
           background-color: #70c745;
           border: none;
-          box-shadow: 0 5px 30px 0 rgba(0, 0, 0, 0.15); }
+          box-shadow: 0 5px 30px 0 rgba(55, 51, 51, 0.075); }
           @media only screen and (min-width: 768px) and (max-width: 991px) {
             .header-area .top-header-area .top-header-content .top-header-meta .language-dropdown .dropdown-menu {
               top: 90px !important; } }
@@ -378,7 +378,7 @@ img {
           .header-area .top-header-area .top-header-content .top-header-meta .language-dropdown .dropdown-menu .dropdown-item:focus,
           .header-area .top-header-area .top-header-content .top-header-meta .language-dropdown .dropdown-menu .dropdown-item:hover {
             color: #ffffff;
-            background-color: #111111; }
+            background-color: rgba(55, 51, 51, 0.075); }
       .header-area .top-header-area .top-header-content .top-header-meta .cart {
         position: relative;
         z-index: 1; }
@@ -400,10 +400,10 @@ img {
     transition-duration: 200ms; }
     @media only screen and (min-width: 768px) and (max-width: 991px) {
       .header-area .alazea-main-menu .classy-navbar .classy-menu {
-        background-color: #111111; } }
+        background-color: rgba(55, 51, 51, 0.075); } }
     @media only screen and (max-width: 767px) {
       .header-area .alazea-main-menu .classy-navbar .classy-menu {
-        background-color: #111111; } }
+        background-color: rgba(55, 51, 51, 0.075); } }
     .header-area .alazea-main-menu .classy-nav-container {
       background-color: transparent; }
     .header-area .alazea-main-menu .classy-navbar {
@@ -413,7 +413,7 @@ img {
         line-height: 1; }
       @media only screen and (max-width: 767px) {
         .header-area .alazea-main-menu .classy-navbar {
-          height: 70px; } }
+          height: 120px; } }
     .header-area .alazea-main-menu .classynav ul li a {
       padding: 0 30px;
       font-weight: 500;
@@ -426,13 +426,13 @@ img {
           padding: 0 20px; } }
       @media only screen and (min-width: 768px) and (max-width: 991px) {
         .header-area .alazea-main-menu .classynav ul li a {
-          background-color: #111111;
+          background-color: rgba(55, 51, 51, 0.075);
           font-size: 16px;
           color: #ffffff;
           border-bottom: none; } }
       @media only screen and (max-width: 767px) {
         .header-area .alazea-main-menu .classynav ul li a {
-          background-color: #111111;
+          background-color: rgba(55, 51, 51, 0.075);
           font-size: 16px;
           color: #ffffff;
           border-bottom: none; } }
@@ -525,7 +525,7 @@ img {
         opacity: 1;
         visibility: visible; }
   .header-area .is-sticky .alazea-main-menu {
-    background-color: #111111;
+    background-color: rgba(44, 110, 20, 0.925);
     position: fixed;
     width: 100%;
     top: 0;
@@ -1030,7 +1030,7 @@ img {
   /*PLANTS CSS */
   
 
-.ui-slider-handle.first-handle {
+.ui-slider-handle.first-handle {  
   display: none !important; }
 
 .shop-widget .ui-slider-range.ui-widget-header.ui-corner-all {
